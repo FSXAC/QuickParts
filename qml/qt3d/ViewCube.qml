@@ -43,7 +43,7 @@ Entity {
         mesh: sideMesh
         material: DiffuseMapMaterial {
             ambient: cube.ambient
-            diffuse:  TextureLoader { source: "viewCube_left.webp" }
+            diffuse:  TextureLoader { source: "viewCube_right.webp" }
             textureScale: 1.0
             shininess: cube.shininess
         }
@@ -56,7 +56,7 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(2)
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(3)
         onEntered: {
             material.ambient = cube.activeColor
         }
@@ -69,7 +69,7 @@ Entity {
         mesh: sideMesh
         material: DiffuseMapMaterial {
             ambient: cube.ambient
-            diffuse:  TextureLoader { source: "viewCube_right.webp" }
+            diffuse:  TextureLoader { source: "viewCube_left.webp" }
             textureScale: 1.0
             shininess: cube.shininess
         }
@@ -82,7 +82,7 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(3)
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(2)
         onEntered: {
             material.ambient = cube.activeColor
         }
@@ -103,7 +103,7 @@ Entity {
             matrix: {
                 var m = Qt.matrix4x4();
                 m.translate(0, cube.cubeSize * 0.5, 0);
-
+                m.rotate(180, Qt.vector3d(0, 1, 0));
                 return m;
             }
         }
@@ -129,7 +129,6 @@ Entity {
                 var m = Qt.matrix4x4();
                 m.translate(0, -cube.cubeSize * 0.5, 0);
                 m.rotate(180, Qt.vector3d(0, 0, 1));
-                m.rotate(180, Qt.vector3d(0, 1, 0));
                 return m;
             }
         }
@@ -146,7 +145,7 @@ Entity {
         mesh: sideMesh
         material: DiffuseMapMaterial {
             ambient: cube.ambient
-            diffuse:  TextureLoader { source: "viewCube_back.webp" }
+            diffuse:  TextureLoader { source: "viewCube_front.webp" }
             textureScale: 1.0
             shininess: cube.shininess
         }
@@ -172,7 +171,7 @@ Entity {
         mesh: sideMesh
         material: DiffuseMapMaterial {
             ambient: cube.ambient
-            diffuse:  TextureLoader { source: "viewCube_front.webp" }
+            diffuse:  TextureLoader { source: "viewCube_back.webp" }
             textureScale: 1.0
             shininess: cube.shininess
         }
