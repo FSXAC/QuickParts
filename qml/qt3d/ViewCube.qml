@@ -21,7 +21,7 @@ Entity {
 
     // ====================[ Properties ]====================
     property real cubeSize: 5
-    property color ambient: "white"
+    property color ambient: "black"
     property color diffuse: "#CCC"
     property color specular: "#FFF"
     property color activeColor: "#49F"
@@ -190,5 +190,46 @@ Entity {
         onExited: {
             material.ambient = cube.ambient
         }
+    }
+
+    Entity {
+        components: [
+            DirectionalLight{
+                color: Qt.rgba(1, 1, 1, 1.0)
+                intensity: 1.0
+                enabled: true
+                worldDirection: Qt.vector3d(1,0,0)
+            },
+            DirectionalLight{
+                color: Qt.rgba(1, 1, 1, 1.0)
+                intensity: 1.0
+                enabled: true
+                worldDirection: Qt.vector3d(-1,0,0)
+            },
+            DirectionalLight{
+                color: Qt.rgba(1, 1, 1, 1.0)
+                intensity: 1.0
+                enabled: true
+                worldDirection: Qt.vector3d(0,1,0)
+            },
+            DirectionalLight{
+                color: Qt.rgba(1, 1, 1, 1.0)
+                intensity: 1.0
+                enabled: true
+                worldDirection: Qt.vector3d(0,-1,0)
+            },
+            DirectionalLight{
+                color: Qt.rgba(1, 1, 1, 1.0)
+                intensity: 1.0
+                enabled: true
+                worldDirection: Qt.vector3d(0,0,1)
+            },
+            DirectionalLight{
+                color: Qt.rgba(1, 1, 1, 1.0)
+                intensity: 1.0
+                enabled: true
+                worldDirection: Qt.vector3d(0,0,-1)
+            }
+        ]
     }
 }
