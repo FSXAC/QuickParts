@@ -9,6 +9,8 @@ import Qt3D.Extras 2.0
 Entity {
     id: cube
 
+    signal clickedOnSide(int index)
+
     // ====================[ Properties ]====================
     property real cubeSize: 5
     property color ambient: "#555"
@@ -17,7 +19,7 @@ Entity {
     property color activeColor: "orange"
     property real shininess: 0.8
     property real inactiveAlpha: 0.65
-    property real activeAlpha: 0.95
+    property real activeAlpha: 1.0
 
     // ====================[ Geometrys ]====================
     PlaneMesh {
@@ -46,13 +48,13 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) console.log("hi")
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(0)
         onEntered: {
-            material.diffuse = cube.activeColor
+            material.ambient = cube.activeColor
             material.alpha = cube.activeAlpha
         }
         onExited: {
-            material.diffuse = cube.diffuse
+            material.ambient = cube.ambient
             material.alpha = cube.inactiveAlpha
         }
     }
@@ -74,13 +76,13 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) console.log("hi")
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(1)
         onEntered: {
-            material.diffuse = cube.activeColor
+            material.ambient = cube.activeColor
             material.alpha = cube.activeAlpha
         }
         onExited: {
-            material.diffuse = cube.diffuse
+            material.ambient = cube.ambient
             material.alpha = cube.inactiveAlpha
         }
     }
@@ -101,13 +103,13 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) console.log("hi")
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(2)
         onEntered: {
-            material.diffuse = cube.activeColor
+            material.ambient = cube.activeColor
             material.alpha = cube.activeAlpha
         }
         onExited: {
-            material.diffuse = cube.diffuse
+            material.ambient = cube.ambient
             material.alpha = cube.inactiveAlpha
         }
     }
@@ -129,13 +131,13 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) console.log("hi")
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(3)
         onEntered: {
-            material.diffuse = cube.activeColor
+            material.ambient = cube.activeColor
             material.alpha = cube.activeAlpha
         }
         onExited: {
-            material.diffuse = cube.diffuse
+            material.ambient = cube.ambient
             material.alpha = cube.inactiveAlpha
         }
     }
@@ -157,13 +159,13 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) console.log("hi")
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(4)
         onEntered: {
-            material.diffuse = cube.activeColor
+            material.ambient = cube.activeColor
             material.alpha = cube.activeAlpha
         }
         onExited: {
-            material.diffuse = cube.diffuse
+            material.ambient = cube.ambient
             material.alpha = cube.inactiveAlpha
         }
     }
@@ -185,13 +187,13 @@ Entity {
                 return m;
             }
         }
-        onClicked: if (event.button === Qt.LeftButton) console.log("hi")
+        onClicked: if (event.button === Qt.LeftButton) cube.clickedOnSide(5)
         onEntered: {
-            material.diffuse = cube.activeColor
+            material.ambient = cube.activeColor
             material.alpha = cube.activeAlpha
         }
         onExited: {
-            material.diffuse = cube.diffuse
+            material.ambient = cube.ambient
             material.alpha = cube.inactiveAlpha
         }
     }
